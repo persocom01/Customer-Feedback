@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- importing javascript libraries -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/captureImage.js"></script>
+  <script src="kd-sumerianhost/aws-sdk-2.645.0.min.js"></script>
+  <script src="scripts/s3Upload.js"></script>
+  <script src="credentials.js"></script>
+  <link rel="stylesheet" href="styles/captureImage.css">
+  <link rel="stylesheet" href="styles/app.css">
+</head>
+    
+    
+<body>
+  <div class="container">
+    <h1>Damage image submission</h1>
+    <p>Please submit the photographs of the damages</p>
+    <!-- <p>Click on the respective thumbnails to take photographs of your car. Click "Submit" when you have completed</p> -->
+    <div id="personalInfo" class="border">
+      <p id="name"></p>
+      <p id="nric"></p>
+    </div>
+    <div id="imagesThumbnail" class="row">
+      <div id="frontViewContainer" class="col-sm border selected-view" data-view="front">
+        <img id="frontView" data-view="front" width=200 height=200 src="styles/pictures/carFront.jpg"></img>
+        <p data-view="front">Front View</p>
+      </div>
+        
+      <div id="backViewContainer" class="col-sm border" data-view="back">
+        <img id="backView" data-view="back" width=200 height=200 src="styles/pictures/carBack.jpg"></img>
+        <p data-view="back">Back View</p>
+      </div>
+
+      <div id="leftViewContainer" class="col-sm border" data-view="left">
+        <img id="leftView" data-view="left" width=200 height=200 src="styles/pictures/carLeft.jpg"></img>
+        <p data-view="left">Left View</p>
+      </div>
+      <div id="rightViewContainer" class="col-sm border" data-view="right">
+        <img id="rightView" data-view="right" width=200 height=200 src="styles/pictures/carRight.jpg">       
+        <p data-view="right">Right View</p>
+      </div>
+    </div>
+    <button class="button-options-select-new" id="submitImage">Submit images</button>
+    <hr />
+    <h1 id="cameraHeader">Front view</h1>
+    <div class="embed-responsive embed-responsive-16by9">
+      <video autoplay playsinline muted allow="camera" id="webcam" class="embed-responsive-item"></video>
+    </div>
+    <div class="text-center">
+      <button class="button-options-select-new" id="captureImage" alignment>Capture!</button>
+    </div>
+    <canvas id="displayImage" hidden></canvas>
+  </div>
+</body>

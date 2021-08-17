@@ -1,0 +1,815 @@
+version: "2.0"
+
+nlu:
+- intent: IfUserSaysHello
+  examples: |
+    - Hello
+    - Sup
+    - Hi
+    - how are you
+    - good day
+    - heyy
+    - Hey Jamie
+    - Hi Jamie
+    - How are you doing Jamie
+    - Can i ask a question
+    - Hello jamie
+
+- intent: askLeaveBalance
+  examples: |
+    - how much annual leave do i have
+    - how much is my leave balance
+    - what's my leave amount in my HR
+
+- intent: unsure
+  examples: |
+    - not sure
+    - i am not sure
+    - no idea
+    - don't know
+    - unsure
+    - i am not sure about my [coe](coesynonyms)
+    - unsure about my [coe](coesynonyms) expiry date
+    - [coe](coesynonyms) not clear
+    - dk
+- intent: coePrices
+  examples: |
+    - How do I check the [coe](coesynonyms) prices
+    - How much does a [coe](coesynonyms) cost
+    - where can i check for [coe](coesynonyms) prices
+    - can i check for [coe](coesynonyms) prices online
+    - Is [coe](coesynonyms) free
+    - how much does [coe](coesynonyms) cost
+    - what is the average price of [coe](coesynonyms)
+    - how much roughly does a [coe](coesynonyms) cost
+    - do you have the past [coe](coesynonyms) prices
+    - how much does the [coe](coesynonyms) cost now
+    - how is [coe](coesynonyms) priced
+    - what is the pricing of [coe](coesynonyms)
+    - are the pricing of [coe](coesynonyms) available online
+    - how often do you update the pricing of [coe](coesynonyms)
+    - cost of [coe](coesynonyms) fixed
+    - how do the price of [coe](coesynonyms) vary
+    - where can i find the [coe](coesynonyms) prices
+    - Where to check [coe](coesynonyms) prices
+    - Do you have the link to check  [coe](coesynonyms)  prices
+
+- intent: coeHasExpired
+  examples: |
+    - Did not renew [coe](coesynonyms) after expiry
+    - Missed [coe](coesynonyms) renewal date
+    - Missed [coe](coesynonyms) expiry date
+    - Expired [coe](coesynonyms)
+    - [coe](coesynonyms) has expired
+    - expired [coe](coesynonyms)
+    - Can I still renew my [coe](coesynonyms) online if it has expired
+    - Is it possible to renew my [coe](coesynonyms) once it expires
+    - What happens if my [coe](coesynonyms) has expired
+    - Renew expired [coe](coesynonyms) online
+    - it has expired
+    - my [coe](coesynonyms) has expired
+    - expire
+
+- intent: coeBidding
+  examples: |
+    - [coe](coesynonyms) bidding
+    - Can i bid for [coe](coesynonyms)
+    - who can bid for [coe](coesynonyms)
+    - How do i know if i am eligible to bid for a [coe](coesynonyms)
+    - where can i submit my bid for [coe](coesynonyms)
+    - Tell me how to bid for [coe](coesynonyms)
+    - Tell me about [coe](coesynonyms) bidding
+    - What are the steps to bid for a [coe](coesynonyms)
+    - Can i submit a [coe](coesynonyms) bid
+    - who can submit a bid for [coe](coesynonyms)
+    - What is required to bid for a [coe](coesynonyms)
+    - What do I need to do to bid for [coe](coesynonyms)
+    - I want to bid for a [coe](coesynonyms)
+    - how do i go about bidding for [coe](coesynonyms)
+
+- intent: user_provideVehicleCategory
+  examples: |
+    - [A](category)
+    
+
+- intent: coeBiddingStatus
+  examples: |
+    - Where can i check for the status of my [coe](coesynonyms) bid applications
+    - Where can i make changes to my [coe](coesynonyms) bid
+    - Can i revise my [coe](coesynonyms) bid
+    - How do i revise my [coe](coesynonyms) bid
+    - Where can i check for the results of [coe](coesynonyms) bidding
+    - Can you help me check my [coe](coesynonyms) bidding status
+    - Tell me about my [coe](coesynonyms) bidding status
+    - When can i revise my [coe](coesynonyms) bid
+    - what is my application status for [coe](coesynonyms) bidding
+    - How to check the status of my [coe](coesynonyms) application
+    - How do I know if my [coe](coesynonyms) application  was successful
+    - [coe](coesynonyms) bidding status
+
+- intent: aboutJamie
+  examples: |
+    - Tell me about yourself
+    - Who are you
+    - What are you
+    - Who is Jamie
+    - why are you called Jamie
+
+- intent: LTA_greeting
+  examples: |
+    - showcase 
+    - start
+
+- intent: MicrositeTutorial
+  examples: |
+    - How do i use this microsite
+    - How do i use this website
+    - how to use this
+    - where do i press
+    - do you have a manual sheet
+    - what do i press
+    - help
+
+- intent: coeBiddingDate
+  examples: |
+    - When is the [coe](coesynonyms) opening bidding tender usually held
+    - When can we bid for [coe](coesynonyms)
+    - [coe](coesynonyms) bidding exercise
+    - What is [coe](coesynonyms) bidding exercise
+    - can i check for the [coe](coesynonyms) bidding dates online
+    - Can you tell me more about the [coe](coesynonyms) open bidding exercise
+    - When do they open the bidding for [coe](coesynonyms)
+    - When does [coe](coesynonyms) bidding start
+    - When is the [coe](coesynonyms) bidding date
+
+- intent: reject
+  examples: |
+    - no
+    - no thanks
+    - nope
+    - nah
+    - nothing
+
+- intent: RenewFiveYear_RenewTenYear
+  examples: |
+    - Can i renew my [year](years)  year [coe](coesynonyms) upon expiry
+    - How many times can i renew my  [year](years) year [coe](coesynonyms)
+    - What is the limit for  [year](years)  year [coe](coesynonyms) renewal
+    - Am i eligible to renew my [coe](coesynonyms) for  [year](years)  years
+    - How many years can i choose to renew my [coe](coesynonyms) for
+    - How long can i renew my [coe](coesynonyms) for
+    - Where can i renew my [coe](coesynonyms) for  [year](years)  years
+    - renew [coe](coesynonyms) for [year](years)  years
+    - After  [year](years)  years can i renew my vehicle
+    - What do i do to renew my [year](years)  year [coe](coesynonyms)
+    - Is it possible to renew my [year](years)  year [coe](coesynonyms)
+    - What happens after my [year](years) year [coe](coesynonyms) expires
+
+- intent: coeBiddingSubmissionType
+  examples: |
+    - [motor dealer](submissionType)
+    - I want to submit by [myself](submissionType)
+    - submit by [company](submissionType)
+    - by [myself](submissionType)
+    - i would like to [submissionType](submissionType)
+    - can i submit it by [submissionType](submissionType)
+    - Am i allowed to submit [submissionType](submissionType)
+    - my [submissionType](submissionType) would like to submit it
+    - i want [submissionType](submissionType)
+
+- intent: coeRenewal
+  examples: |
+    - [coe](coesynonyms) renewal
+    - Am i allowed to renew my vehicle [coe](coesynonyms)
+    - can i renew my vehicle [coe](coesynonyms)
+    - how to check if i can renew my [coe](coesynonyms)
+    - how do i know if i am eligible to renew my [coe](coesynonyms)
+    - can i further renew my [coe](coesynonyms)
+    - am i allowed to renew my [coe](coesynonyms)
+    - Tell me about [coe](coesynonyms) renewal
+    - Can i find out more about [coe](coesynonyms) renewal
+    - I want to find out more about [coe](coesynonyms) renewal
+    - Explain to me about [coe](coesynonyms) renewal
+    - walk me through [coe](coesynonyms) renewal
+    - what is [coe](coesynonyms) renewal
+    - i want to renew my [coe](coesynonyms)
+    - my [coe](coesynonyms) is up for renewal what can i do
+    - is it time to renew my [coe](coesynonyms)
+    - can you help me check if my [coe](coesynonyms) is up for renewal
+    - renew [coe](coesynonyms)
+    - renewing [coe](coesynonyms)
+
+- intent: coeRenewalLatePayment
+  examples: |
+    - Do I need to pay extra if I renew my [coe](coesynonyms) after the expiry date
+    - How much do I need to pay if I renew  my [coe](coesynonyms) after the expiry date
+    - What is the cost if I renew my [coe](coesynonyms) after it expires
+    - How much does it cost if I renew  my [coe](coesynonyms) after it expires
+    - Will there be any penalties if I renew my [coe](coesynonyms) after it expires
+    - Are there any late payment fees if I renew my [coe](coesynonyms) after the expiry date
+    - Are there any fines for renewing my [coe](coesynonyms) late
+    - What happens when i renew my [coe](coesynonyms) after the expiry date
+    - How much is the late payment fee
+    - how much is [coe](coesynonyms) late payment fee
+
+- intent: coeRenewalPayment_Instalment
+  examples: |
+    - What if i am unable to pay the full amount of [pqp](PQPSynonyms)
+    - What if i am unable to pay the full amount to renew my [coe](coesynonyms)
+    - Can i pay on an instalment basis for my [coe](coesynonyms) renewal
+    - [coe](coesynonyms) renewal on an Instalment basis
+    - Can i renew my [coe](coesynonyms) on an instalments basis
+    - Is it possible to renew my [coe](coesynonyms) by  instalments
+    - Can I use instalments to renew  my [coe](coesynonyms)
+    - Can I renew my [coe](coesynonyms) using instalments
+    - Can I pay by instalments to  renew my [coe](coesynonyms)
+    - Do you have an  instalment plan for [coe](coesynonyms) renewal
+    - Is there a way i can pay my [coe](coesynonyms)  renewal by instalments
+    - Can i pay for the renewal of [coe](coesynonyms) bit by bit
+    - Can i pay for [pqp](PQPSynonyms) bit by bit
+    - can i pay my [coe](coesynonyms) renewal by instalments
+
+- intent: LTAdefinition
+  examples: |
+    - What is [lta](LTAsynonyms)
+    - [lta](LTAsynonyms)
+    - What does [lta](LTAsynonyms) stand for
+    - who owns [lta](LTAsynonyms)
+    - what does [lta](LTAsynonyms) do
+    - who is the boss of [lta](LTAsynonyms)
+    - What does LTE stand for
+
+- intent: coeRenewalStatus
+  examples: |
+    - How do i know whether my [coe](coesynonyms)  renewal application is successful
+    - How do i check my  [coe](coesynonyms) renewal application status
+    - Where can i check details of my [coe](coesynonyms)  renewal application
+    - [coe](coesynonyms) renewal status
+    - How do i check my [coe](coesynonyms) renewal application status
+    - Will I know if my [coe](coesynonyms) renewal  is successful
+    - How can I tell if my [coe](coesynonyms)  renewal  is successful
+    - Will you notify me on my [coe](coesynonyms)  renewal status
+    - How will I know if  my [coe](coesynonyms) renewal application is successful
+    - How to check the  status of my [coe](coesynonyms)  renewal application
+    - How to check for my [coe](coesynonyms) application status
+    - How do i know if my [coe](coesynonyms) renewal is successful
+    - How to check if my [coe](coesynonyms) renewal is unsuccessful
+    - enquire [coe](coesynonyms) renewal status
+
+- intent: testIntent
+  examples: |
+    - Where can I enquire on the status and expiry date of my Vocational Licence
+    - where can i check the vocational license
+    - vocational license
+
+- intent: renewCoeOnline
+  examples: |
+    - Online [coe](coesynonyms) renewal
+    - Can i renew my [coe](coesynonyms) online
+    - Renew [coe](coesynonyms) online
+    - Can i renew [coe](coesynonyms) online at one motoring
+    - I want to renew my [coe](coesynonyms) online
+    - Walk me through the online [coe](coesynonyms) renewal
+    - Tell me how to renew my [coe](coesynonyms)  online
+    - Which digital service do I use to renew my [coe](coesynonyms)
+    - Can I renew  my [coe](coesynonyms) on [lta](LTAsynonyms) website
+    - Where should I  go on the one motoring website to renew my [coe](coesynonyms)
+    - What do I require  to renew my [coe](coesynonyms) online
+    - What do I need  to renew my [coe](coesynonyms) online
+    - How exactly  do I renew my [coe](coesynonyms) online
+    - Is it possible if I want to renew my [coe](coesynonyms) online
+    - Where can i renew my [coe](coesynonyms)
+    - Which method do you recommend i should use to renew my [coe](coesynonyms)
+
+- intent: coeRenewalReminder
+  examples: |
+    - Will L T A notify me to renew my vehicle [coe](coesynonyms) and when will i receive this notification
+    - Will i receive a reminder to renew my [coe](coesynonyms)
+    - Renew [coe](coesynonyms) notification
+    - Will L T A notify me to renew my [coe](coesynonyms)
+    - Will i receive a reminder from L T A to renew my [coe](coesynonyms)
+    - Will L T A remind me to renew my vehicle [coe](coesynonyms)
+    - How long until i need to renew my [coe](coesynonyms)
+    - Who will notify me to renew my [coe](coesynonyms)
+    - What notification will be sent me to renew my [coe](coesynonyms)
+    - Will I receive a reminder from L T A to renew my [coe](coesynonyms)
+    - Will L T A inform me when to renew my [coe](coesynonyms)
+    - Where will I receive this reminder to renew my [coe](coesynonyms)
+    - Where will lta send me the reminder to renew my [coe](coesynonyms)
+    - Will lta inform me when to renew my [coe](coesynonyms)
+    - Will I receive a reminder from lta to renew my [coe](coesynonyms)
+
+- intent: EnquirePQPRate_CheckCoeExpiry
+  examples: |
+    - Where can i check [pqp](PQPSynonyms) rate
+    - How do i check my [pqp](PQPSynonyms) rate
+    - Where can i find out the [pqp](PQPSynonyms) rate that i need to pay
+    - How do i check my [coe](coesynonyms) expiry date
+    - Where can i check my [coe](coesynonyms) expiry date
+    - How do i check my [coe](coesynonyms) expiry date and Prevailing Quota Premium rate applicable for my vehicle
+    - How to check my [coe](coesynonyms) expiry date
+    - How to check my  [pqp](PQPSynonyms) rate
+    - How do I know  when does my vehicle expires
+    - What is the [pqp](PQPSynonyms) rate applicable for my vehicle
+    - How much [pqp](PQPSynonyms)  must I pay
+    - What is the [pqp](PQPSynonyms) rate for my car
+    - When does my vehicle expire
+    - Can I check  my [pqp](PQPSynonyms) rate online
+    - Can I check  for my [coe](coesynonyms) expiry online
+    - What is my [coe](coesynonyms) expiry date
+    - When does my [coe](coesynonyms) expires
+    - When can i check for the [pqp](PQPSynonyms) rate
+    - Enquire [coe](coesynonyms) expiry
+
+- intent: useVehicleOnExpiryDate
+  examples: |
+    - Driving on the date my [coe](coesynonyms) expires
+    - What happens when i use my vehicle on the [coe](coesynonyms) expiry date
+    - Can i drive on my [coe](coesynonyms) expiry date
+    - Can i use my vehicle on the [coe](coesynonyms) expiry date
+    - Can I still use my vehicle when my [coe](coesynonyms) expires
+    - Am I allowed to use my vehicle once  my [coe](coesynonyms) expires
+    - Can I use my vehicle on the day my [coe](coesynonyms) expires
+    - Can I drive my vehicle on the [coe](coesynonyms) expiry date
+    - What happens when  my [coe](coesynonyms) expires
+    - What happens to my vehicle when my [coe](coesynonyms) expires
+
+- intent: requestForRealHuman
+  examples: |
+    - Can i speak to someone else
+    - Can i speak to a real human
+    - can you redirect me to someone else
+    - is there anyone that i can speak to
+    - can you call your manager
+    - i want to speak to your manager
+    - can you call someone for me
+    - is there someone i can speak to
+    - is there anyone else
+    - i want to talk to a real human
+    - can you get your manager to call me
+    - Can i speak to someone else in LTA
+
+- intent: user_provideName
+  examples: |
+    - call me [username](AMAZON.US_FIRST_NAME)
+    - my name is [username](AMAZON.US_FIRST_NAME)
+    - [username](AMAZON.US_FIRST_NAME)
+    - hello my name is [username](AMAZON.US_FIRST_NAME)
+    - I am [username](AMAZON.US_FIRST_NAME)
+
+- intent: user_provideTopic
+  examples: |
+    - I want to [Topic](Topics)
+    - Can i do a [Topic](Topics)
+
+- intent: vehicleCategory_ValidityPeriod
+  examples: |
+    - What are the vehicle categories available for [coe](coesynonyms) bidding and what are the respective validity periods
+    - What are the vehicle categories for [coe](coesynonyms) bidding
+    - Which vehicle cat can i bid for if i want to get a [coe](coesynonyms)
+    - which vehicle category can i bid for if i want to get a [coe](coesynonyms)
+    - What are the vehicle cat for [coe](coesynonyms) bidding
+    - What are the vehicle cat available for [coe](coesynonyms) bidding and what are the respective validity periods
+    - How many vehicle categories are there for [coe](coesynonyms) bidding
+    - What are the [coe](coesynonyms) categories available for bidding
+    - how many [coe](coesynonyms) categories are there
+    - What is [coe](coesynonyms) [category](category_syn) [A](coecategory)
+    - What is [coe](coesynonyms) category A
+    - What is [coe](coesynonyms) category B
+    - What is [coe](coesynonyms) category C
+    - What is [coe](coesynonyms) category E
+    - What is [coe](coesynonyms) category D
+    - Is there a [coe](coesynonyms) category F
+    - Is there a [coe](coesynonyms) category G
+    - What are the validity periods of each [coe](coesynonyms) category
+    - What are the validity periods of each vehicle category
+    - What is category A [coe](coesynonyms)
+    - What is category B [coe](coesynonyms)
+    - What is category C [coe](coesynonyms)
+    - What is category D [coe](coesynonyms)
+    - What is category E [coe](coesynonyms)
+    - What are the vehicle categories under [coe](coesynonyms) bidding
+    - What vehicles are eligible for [coe](coesynonyms) bidding
+    - How long is the [coe](coesynonyms) valid for
+    - How long before I need to reapply  for [coe](coesynonyms)
+    - What is the validity of the [coe](coesynonyms) for different vehicle types
+    - What vehicle types are available  for [coe](coesynonyms) bidding
+    - what are the categories i can bid for
+    - [coe](coesynonyms) validity periods
+
+- intent: tcoeDefinition
+  examples: |
+    - [tcoe](Tcoesynonyms)
+    - Tell me what is [tcoe](Tcoesynonyms)
+    - What does [tcoe](Tcoesynonyms) stand for
+    - What does [tcoe](Tcoesynonyms) mean
+    - Why is there a [tcoe](Tcoesynonyms)
+    - When will you get a [tcoe](Tcoesynonyms)
+    - how many months is the [tcoe](Tcoesynonyms) valid for
+    - how long is the [tcoe](Tcoesynonyms) valid for
+    - How long can you keep the [tcoe](Tcoesynonyms) for
+    - For category E will i be issued a [tcoe](Tcoesynonyms)
+    - What should i know about [tcoe](Tcoesynonyms)
+    - What is the validity of a [tcoe](Tcoesynonyms)
+    - where can i find out more about [tcoe](Tcoesynonyms)
+    - What is the purpose of a [tcoe](Tcoesynonyms)
+    - why do LTA issue [tcoe](Tcoesynonyms)
+    - why does [tcoe](Tcoesynonyms) exist
+    - why do [tcoe](Tcoesynonyms) exist
+    - Tell me about [tcoe](Tcoesynonyms)
+    - What is a [tcoe](Tcoesynonyms)
+    - Do I need a [tcoe](Tcoesynonyms)
+    - What is a [tcoe](Tcoesynonyms) needed for
+    - Can you explain [tcoe](Tcoesynonyms)
+    - Is a [tcoe](Tcoesynonyms) necessary
+    - [tcoe](Tcoesynonyms) definition
+    - Tell me more about [tcoe](Tcoesynonyms)
+
+- intent: Pause
+  examples: |
+    - Pause
+    - stop
+    - can you stop for awhile
+    - can you stop talking
+    - stop talking
+    - stop speaking
+    - stop for awhile
+    - can you pause for abit
+    - can you stop for abit
+
+- intent: affirm
+  examples: |
+    - yes
+    - yes please
+    - okay
+    - alright
+
+- intent: ifUserWantsToExitChat
+  examples: |
+    - How do i exit this chat
+    - How to exit this
+    - Do i close this website
+    - i want to exit this session
+    - close this session
+    - How to exit
+    - Where to close this
+
+- intent: ifUserNameIsWrong
+  examples: |
+    - Thats not my name
+    - i think you got my name wrong
+
+- intent: QPdefinition
+  examples: |
+    - What is QP
+    - What is quota premium
+    - how to calculate quota premium
+    - what is qp
+    - Q P
+    - QUE PEE
+    - CUE PEE
+
+- intent: coeEarly
+  examples: |
+    - How do i renew my [coe](coesynonyms) early
+    - Can i renew my [coe](coesynonyms) before the expiry date
+    - my [coe](coesynonyms) is early for renewal
+    - Early [coe](coesynonyms) renewal
+    - Renew [coe](coesynonyms) prior to expiry month
+    - Can i renew my [coe](coesynonyms) before the expiry month
+    - How early can i renew my [coe](coesynonyms)
+    - Can I renew my [coe](coesynonyms) before it expires
+    - My [coe](coesynonyms) has not expired but can I renew it early
+    - What happens when i renew my [coe](coesynonyms) before the expiry date
+    - What happens to my previous [coe](coesynonyms) expiry date if I renew it early
+    - Can you help me renew my [coe](coesynonyms) early
+    - early [coe](coesynonyms) renewal before month of expiry
+    - early renewal
+    - early for renewal
+
+- intent: coeRenewalPayment
+  examples: |
+    - What are the modes of payment to renew my [coe](coesynonyms)
+    - What are the [coe](coesynonyms) renewal payment channels
+    - what are the [coe](coesynonyms) renewal payment modes
+    - Can i renew my [coe](coesynonyms) by post
+    - What are the [coe](coesynonyms) renewal payment methods
+    - How much does it cost to renew my [coe](coesynonyms)
+    - What is the cost of renewing my [coe](coesynonyms)
+    - What is the price to renew [coe](coesynonyms)
+    - How much do I need to pay to renew my [coe](coesynonyms)
+    - If I want to renew my [coe](coesynonyms) how much do I need to pay
+    - What is the amount payable if i wish to renew my [coe](coesynonyms)
+
+- intent: pqpDefinition
+  examples: |
+    - [pqp](PQPSynonyms)
+    - what is [pqp](PQPSynonyms)
+    - What does [pqp](PQPSynonyms) mean
+    - Can you explain more about [pqp](PQPSynonyms)
+    - Tell me more about [pqp](PQPSynonyms)
+    - Can I know more  about [pqp](PQPSynonyms)
+    - Define [pqp](PQPSynonyms)
+    - What is pick you pull
+
+- intent: tcoeCancellation
+  examples: |
+    - Can i cancel my [tcoe](Tcoesynonyms)
+    - can i revoke my [tcoe](Tcoesynonyms)
+    - what if i don't want my [tcoe](Tcoesynonyms) anymore
+    - am i allowed to cancel my [tcoe](Tcoesynonyms)
+    - can you help me cancel my [tcoe](Tcoesynonyms)
+    - can i change my mind if i don't want my [tcoe](Tcoesynonyms)
+    - what happens if i don't register a vehicle before my [tcoe](Tcoesynonyms) expires
+    - Can i get back my bid deposit if i cancel my [tcoe](Tcoesynonyms)
+    - Can i get back my money if i cancel my [tcoe](Tcoesynonyms)
+    - how do i get back my deposit if i want to cancel my [tcoe](Tcoesynonyms)
+    - what happens when my [tcoe](Tcoesynonyms) expires
+    - what will happen to my money when my [tcoe](Tcoesynonyms) expires
+    - what if i don't use my [tcoe](Tcoesynonyms)
+    - Must i find a prospective vehicle owner if i do not wish to use my [tcoe](Tcoesynonyms)
+    - what can i do if i want to cancel my [tcoe](Tcoesynonyms)
+    - How to cancel my [tcoe](Tcoesynonyms)
+    - Can I cancel my [tcoe](Tcoesynonyms)
+    - I dont need my [tcoe](Tcoesynonyms) anymore
+    - What if I want to cancel my [tcoe](Tcoesynonyms)
+    - I want to cancel my [tcoe](Tcoesynonyms)
+    - cancelling [tcoe](Tcoesynonyms)
+
+- intent: coeDefinition
+  examples: |
+    - What is [coe](coesynonyms)
+    - [coe](coesynonyms)
+    - Explain [coe](coesynonyms) to me
+    - What does [coe](coesynonyms) stand for
+    - What does [coe](coesynonyms) mean
+    - why do you call it [coe](coesynonyms)
+    - what is Vehicle Quota system
+    - why do we have [coe](coesynonyms)
+    - What is the purpose of [coe](coesynonyms)
+    - can you tell me what is [coe](coesynonyms)
+    - Does [coe](coesynonyms) apply in singapore only
+    - Please explain [coe](coesynonyms)
+    - Do I need a [coe](coesynonyms)
+    - Is a [coe](coesynonyms) necessary
+    - [coe](coesynonyms) definition
+    - Tell me more about [coe](coesynonyms)
+
+- intent: displayListOfServices
+  examples: |
+    - What can you help with
+    - Show me the list of services
+    - how can you help
+    - what can you do
+    - tell me what i can do
+    - what do you know
+    - what are the topics
+    - what can i choose from
+    - reset
+    - list services
+    - view services
+
+- intent: coeSameMonth
+  examples: |
+    - month of renewal
+    - this month
+    - [coe](coesynonyms) expires in the same month
+    - in the month
+    - same month
+    - [coe](coesynonyms) same month
+    - it's in the month for renewal
+    - in the month for renewal
+    - it is in the month for renewal
+    - my [coe](coesynonyms) is up for renewal this month
+    - My [coe](coesynonyms) expires today
+    - [coe](coesynonyms) expires tomorrow
+    - [coe](coesynonyms) expires soon
+    - [coe](coesynonyms) expires in a week
+    - [coe](coesynonyms) expires in this same month
+    - Can I renew my [coe](coesynonyms) any time within the month of renewal
+
+- intent: endSession
+  examples: |
+    - Okay thank you
+    - Bye
+    - Thanks
+    - Thank you
+    - Good bye
+    - okay bye
+    - k thx
+    - ok thxs
+    - okay thanks
+
+- intent: needTCoe
+  examples: |
+    - I need a [tcoe](Tcoesynonyms)
+    - Where can i buy a [tcoe](Tcoesynonyms)
+    - Where can i purchase a [tcoe](Tcoesynonyms)
+    - Where can i get a [tcoe](Tcoesynonyms)
+    - How can i get a [tcoe](Tcoesynonyms)
+    - What is the fastest way to get a [tcoe](Tcoesynonyms)
+    - How can i obtain a [tcoe](Tcoesynonyms)
+    - what should i do if i need a [tcoe](Tcoesynonyms) urgently
+    - what can i do if i need a [tcoe](Tcoesynonyms) urgently
+    - how fast can i get a [tcoe](Tcoesynonyms)
+    - What methods can i use to get a [tcoe](Tcoesynonyms)
+    - i need a [tcoe](Tcoesynonyms) now what can i do
+    - Can i buy a [tcoe](Tcoesynonyms) from LTA
+    - how do i get a [tcoe](Tcoesynonyms)
+    - What do I need to do to get a [tcoe](Tcoesynonyms)
+    - How do I apply for a [tcoe](Tcoesynonyms)
+    - Where to get a [tcoe](Tcoesynonyms)
+    - Urgently need [tcoe](Tcoesynonyms)
+
+- intent: vehicleCategoryDifferences
+  examples: |
+    - What is the difference between a Cat E [coe](coesynonyms) and COE in other categories
+    - what is the diff between category E and category A [coe](coesynonyms)
+    - what is the diff between category E and category B [coe](coesynonyms)
+    - what is the diff between category E and category C [coe](coesynonyms)
+    - what is the diff between category E and category D [coe](coesynonyms)
+    - what is the difference between category E and category A [coe](coesynonyms)
+    - what is the difference between category E and category B [coe](coesynonyms)
+    - what is the difference between category E and category C [coe](coesynonyms)
+    - what is the difference between category E and category D [coe](coesynonyms)
+    - what is the difference between vehicle E and vehicle A [coe](coesynonyms)
+    - what is the difference between vehicle E and vehicle B [coe](coesynonyms)
+    - what is the difference between vehicle E and vehicle C [coe](coesynonyms)
+    - what is the difference between vehicle E and vehicle D [coe](coesynonyms)
+    - what is the difference between vehicle A and vehicle E [coe](coesynonyms)
+    - what is the difference between vehicle B and vehicle E [coe](coesynonyms)
+    - what is the difference between vehicle C and vehicle E [coe](coesynonyms)
+    - what is the difference between vehicle D and vehicle E [coe](coesynonyms)
+    - What is the difference between a Cat E [coe](coesynonyms) and Certificate of entitlement in other categories
+    - What are the differences between  [coe](coesynonyms) categories
+    - What is Category E [coe](coesynonyms)
+    - What are the [coe](coesynonyms) categories  available
+    - What are the different [coe](coesynonyms)  types
+    - What do the [coe](coesynonyms) categories  mean
+
+- intent: IVRSdefinition
+  examples: |
+    - What is IVRS
+    - visual IVRS
+    - I V R S
+    - What is Visual I V R S
+    - Can you tell me what is Visual I V R S
+    - What does I V R S stand for
+
+- lookup: submissionType
+  examples: |
+    - motor
+    - myself
+    - company
+- synonym: motor
+  examples: |
+    - motor dealer
+    - motor
+    - dealer
+    - car dealer
+    - vehicle dealer
+- synonym: myself
+  examples: |
+    - myself
+    - by myself
+    - yourself
+    - ownself
+- synonym: company
+  examples: |
+    - company
+    - companys
+    - company's name
+    - company name
+    - organisation
+    - organization
+    - organisation name
+
+- lookup: Topics
+  examples: |
+    - FAQ
+    - COE renewal
+- synonym: FAQ
+  examples: |
+    - faq
+- synonym: COE renewal
+  examples: |
+    - COE renewal
+    - renew
+    - renewal
+
+- lookup: coesynonyms
+  examples: |
+    - coe
+
+- synonym: coe
+  examples: |
+    - C O E
+    - Certificate of entitlement
+    - COA
+    - COB
+    - KOWEE
+    - COWEE
+    - C O A
+    - C O B
+    - SIRI
+    - COU
+    - C O U
+    - SEOE
+    - CEOE
+    - Silly
+    - silly
+    - rcoe
+    - sealy
+    - CEO
+    - C E O
+    - huey
+    - yui
+    - suey
+    - siri
+    - COEs
+    - coes
+    - C O Es
+    - c o es
+
+- lookup: PQPSynonyms
+  examples: |
+    - PQP
+- synonym: PQP
+  examples: |
+    - P Q P
+    - pqp
+    - p q p
+    - Prevailing Quota Premium
+    - PREVAILING QUOTA PREMIUM
+    - prevailing quota premium
+    - PIQUPI
+    - PEEQUPEE
+
+- lookup: category
+  examples: |
+    - C
+    - ABD
+- synonym: C
+  examples: |
+    - C
+    - type C
+    - vehicle type C
+    - category C
+    - cat C
+- synonym: ABD
+  examples: |
+    - A
+    - B
+    - D
+    - Vehicle A
+    - Vehicle type B
+    - Vehicle D
+    - category A
+    - category B
+    - category D
+    - cat A
+    - cat B
+    - cat D
+
+- lookup: Tcoesynonyms
+  examples: |
+    - T C O E
+
+- synonym: T C O E
+  examples: |
+    - TCOE
+    - tcoe
+    - Temporary COE
+    - Temporary C O E
+    - Temporary certificate of entitlement
+    - TOE
+    - T O E
+    - toe
+    - t o e
+    - temp coe
+
+- lookup: LTAsynonyms
+  examples: |
+    - LTA
+
+- synonym: LTA
+  examples: |
+    - lta
+    - L T A
+    - l t a
+    - Land Transport and authority
+    - land transport authority
+    - LAND TRANSPORT AUTHORITY
+
+- lookup: years
+  examples: |
+    - ten
+    - five
+- synonym: ten
+  examples: |
+    - ten
+    - 10
+- synonym: five
+  examples: |
+    - five
+    - 5

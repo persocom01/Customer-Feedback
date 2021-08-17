@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom exceptions
+00_test.*
+*.eslintcache
+key.pem
+cert.pem
+credentials.js
+/sentiment_analysis/data

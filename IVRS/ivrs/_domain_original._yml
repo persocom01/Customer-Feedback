@@ -1,0 +1,357 @@
+version: '2.0'
+
+session_config:
+   session_expiration_time: 60 
+   carry_over_slots_to_new_session: true 
+
+intents: 
+  - IfUserSaysHello
+  - unsure
+  - coePrices
+  - coeHasExpired
+  - coeBidding
+  - user_provideVehicleCategory
+  - coeBiddingStatus
+  - aboutJamie
+  - LTA_greeting
+  - MicrositeTutorial
+  - coeBiddingDate
+  - reject
+  - RenewFiveYear_RenewTenYear
+  - coeBiddingSubmissionType
+  - coeRenewal
+  - coeRenewalLatePayment
+  - coeRenewalPayment_Instalment
+  - LTAdefinition
+  - coeRenewalStatus
+  - testIntent
+  - FAQ_COE_Bidding
+  - renewCoeOnline
+  - coeRenewalReminder
+  - EnquirePQPRate_CheckCoeExpiry
+  - useVehicleOnExpiryDate
+  - requestForRealHuman
+  - user_provideName
+  - user_provideTopic
+  - vehicleCategory_ValidityPeriod
+  - tcoeDefinition
+  - Pause
+  - affirm
+  - ifUserWantsToExitChat
+  - ifUserNameIsWrong
+  - QPdefinition
+  - coeEarly
+  - coeRenewalPayment
+  - pqpDefinition
+  - tcoeCancellation
+  - coeDefinition
+  - displayListOfServices
+  - coeSameMonth
+  - endSession
+  - needTCoe
+  - vehicleCategoryDifferences
+  - IVRSdefinition
+  - Whattheweather
+  - fallback
+  - bot_challenge
+  - goodbye
+  - askLeaveBalance
+
+entities: 
+  - policy
+  - location
+  - coesynonyms
+  - category
+  - years
+  - submissionType
+  - PQPSynonyms
+  - LTAsynonyms
+  - AMAZON.US_FIRST_NAME
+  - Topics
+  - Tcoesynonyms
+  - nric_regex
+
+slots:
+  policy:
+    type: text
+    influence_conversation: false
+  location:
+    type: text
+    influence_conversation: false
+  coesynonyms:
+    type: any
+    influence_conversation: false
+  category:
+    type: any
+    influence_conversation: false
+  years:
+    type: text
+    influence_conversation: true
+  submissionType:
+    type: text
+    influence_conversation: true
+  PQPSynonyms:
+    type: any
+    influence_conversation: false
+  LTAsynonyms:
+    type: any
+    influence_conversation: false
+  AMAZON.US_FIRST_NAME:
+    type: any
+    influence_conversation: false
+  Topics:
+    type: any
+    influence_conversation: false
+  Tcoesynonyms:
+    type: any
+    influence_conversation: false
+  is_authenticated:
+    type: bool
+  price_level:
+    type: categorical
+    influence_conversation: false
+    values:
+    - low
+    - medium
+    - high
+  appointment_times:
+    type: list 
+    influence_conversation: false
+
+responses:
+  utter_ask_location:
+  - text: Can I have your address?
+
+  utter_ask_identitynum:
+  - text: Can I have your NRIC number?
+
+  utter_say_identitynum_and_location:
+  - text: Your NRIC numbers is {nric_regex} and you are from {location}
+
+  utter_IfUserSaysHello:
+  - text: Hello, I am always ready to help! Well, these are just some of the hot topics this month, check it out below.
+
+  utter_coeBiddingStatus:
+  - text: Bidders can check the status of their bids and revise their reserve price via two methods. By using the participating banks services or via the LTA Open Bidding website.
+
+  utter_coePrices:
+  - text: You can go to our homepage at One Motoring website, under C O E prices to check for the latest C O E prices. Please click on the link below to be redirected to our homepage.
+
+  utter_coeHasExpired:
+  - text: Has your C O E expired for more than a month?
+
+  utter_aboutJamie:
+  - text: I am Jamie, your AI - Powered digital human assistant. I know all about the services we have here at LTA. Below are some topics that might interest you. What would you like to know?
+
+  utter_LTA_greeting:
+  - text: >
+      Welcome to LTA’s Visual IVRS, a service for all things LTA. I am Jamie, your A I -powered digital human assistant.
+      Tap or click on the mic button once, to speak, or simply type in your question below. To begin, can I get your name?
+
+  utter_MicrositeTutorial:
+  - text: >
+      If this is an emergency about your vehicle or anything LTA related, i am at your service!
+      Press once, on the mic button and say “View Services” for more information on what you can ask me.
+
+  utter_coeBiddingDate:
+  - text: There are two C O E Open Bidding exercises in a month. Each bidding exercise typically lasts for 3 working days. The bidding exercise usually starts at 12 pm on the first and third Monday of the month and usually ends at 4 pm on Wednesday, if there is no public holiday in between. The dates of the upcoming bidding exercise will be announced on One Motoring website on the Friday prior to the start of that exercise.
+
+  utter_RenewFiveYear_RenewTenYear:
+  - text: nice
+
+  utter_coeRenewal:
+  - text: Can i check if your C O E is early for renewal, in the month for renewal or has it expired?
+
+  utter_coeRenewalLatePayment:
+  - text: You can avoid late renewal fees by renewing your C O E on or before the date your C O E expires. You will need to pay a late renewal fee if you renew your C O E after it expires. Check the late fees applicable to your vehicle by clicking on the link below.
+
+  utter_coeRenewalPayment_Instalment:
+  - text: A C O E represents an up-front lump sum cost to vehicle owners. To ensure parity and fairness of the V Q S, you must pay the full amount of the applicable P Q P if you wish to renew the C O E of your existing vehicle. To allow existing owners to renew their C O E on an instalment basis will be unfair to new vehicle buyers who have to pay the full amount of a 10-year C O E upfront.
+
+  utter_LTAdefinition:
+  - text: LTA stands for Land Transport Authority which spearheads land transport developments in Singapore. We plan, design, build and maintain the land transport infrastructure and systems in Singapore.
+
+  utter_coeRenewalStatus:
+  - text: When the C O E has been successfully renewed, a receipt will be shown on the screen. You are advised to print a copy of the receipt for reference. Alternatively, you may click below to enquire about your C O E renewal status.
+
+  utter_renewCoeOnline:
+  - text: You can renew the C O E of your existing vehicle online, by following these 3 steps. Step 1, you will need a valid Internet Banking Account with Citibank, D B S or P O S B, OCBC or Plus!Standard Chartered Bank or U O B. Your account with the aforesaid banks will bededucted through the electronic direct debit payment scheme offered by NETS.Step 2, visit our one motoring website. Under Digital Services, select RenewCOE option. Step 3, if you are using pop-up blocker, you must add the allowedsites at the pop-up blocker settings or you can turn off the pop-up blocker,before you proceed.
+
+  utter_coeRenewalReminder:
+  - text: LTA will send you a letter about 2 months before the expiry of the vehicle C O E. But note that with effect from 1st June 2019, hardcopy letters will no longer be posted to asset owners unless they have opted before 31st May 2019 to continue receiving hardcopy letters from LTA. Vehicle owners will receive an e-reminder from LTA about 2 months before their vehicle C O E expires.To view your e-letter, click on the link below.
+
+  utter_EnquirePQPRate_CheckCoeExpiry:
+  - text: An Asset Owner can login to your dashboard using Sing Pass 2 F A or Corp Pass 2 F A to enquire the C O E expiry date and the P Q P rate applicable for your vehicle.You can also click on the link below to enquire about C O E validity and P Q P rates.
+
+  utter_useVehicleOnExpiryDate:
+  - text: You can use your vehicle on its C O E expiry date. However, if the C O E is not renewed by the expiry date, the vehicle will be deregistered. It is an offence for anyone to keep or use a deregistered vehicle.
+
+  utter_requestForRealHuman:
+  - text: Sure, if you would prefer to speak to a real person, you can dial our customer service hotline below on your mobile phone.
+
+  utter_vehicleCategory_ValidityPeriod:
+  - text: If you would like to find out more about C O E bidding and it's respective validity periods, please click on the link below.
+
+  utter_tcoeDefinition:
+  - text: The Temporary C O E is a successfully secured C O E before it has been used to register a vehicle. The C O E allows a vehicle owner to own a vehicle for 10 years. A prospective vehicle owner will have to register their new vehicle within the validity of the Temporary C O E.  Temporary C O E under Categories A, B and D are valid for 6 months, while Category C and E, Temporary C O E are only valid for 3 months. Hope this answers your question. Is there anything else you would like to know about our services?
+  - text: The Temporary C O E is a successfully secured C O E before it has been used to register a vehicle. The C O E allows a vehicle owner to own a vehicle for 10 years. A prospective vehicle owner will have to register their new vehicle within the validity of the Temporary C O E. Hope this answers your question. Is there anything else you would like to know about our services?
+
+  utter_Pause:
+  - text: Okay, I will be here waiting for you. Whenever you are ready, just say "Hello" or "View Services" for more information on how I can help.
+
+  utter_ifUserWantsToExitChat:
+  - text: Is that all for you today? if you would like to exit this chat, you can just close this browser.
+
+  utter_ifUserNameIsWrong:
+  - text: Refer to figma board for the response
+
+  utter_QPdefinition:
+  - text: Q P stands for Quota Premium, also known as the cost price of C O E. LTA does not set the C O E prices. They are determined by market supply and demand over open bidding exercises.If you are still on this topic, here are some questions that may interest you.
+
+  utter_coeEarly:
+  - text: Great! You can renew the C O E of your vehicle before the expiry month of the 10-year C O E. The new C O E will start from the first of the month following the renewal month and the balance unused period of the current C O E will be forfeited. Shall I go on?
+  - text: Well, you can choose to renew your 10-year C O E before the expiry month. But your new C O E will start from the first of the month following the renewal month and the balance unused period of the current C O E will be forfeited. Shall I go on?
+
+  utter_coeRenewalPayment:
+  - text: Depending on whether your vehicle C O E has expired, you may renew your C O E online or by post via these channels and modes of payment. To renew online at One Motoring, you can make payment via e NETS Debit. Or if you wish to renew by post, you can make payment via cheque or cashiers order.If you are still on this topic, below listed are some relevant topics you can ask me about.
+
+  utter_pqpDefinition:
+  - text: P Q P is the moving average of C O E prices in the last 3 months. It varies monthly, depending on the C O E prices of the bidding exercises in the last 3 months. Months in which no bidding was conducted are excluded from the calculation. You can find out the P Q P for each month once the 2nd bidding exercise in the previous month is over.If this helps, here are some other terms that i can explain to you.
+
+  utter_tcoeCancellation:
+  - text: A Temporary C O E cannot be cancelled. The Temporary C O E is the result of a successful bid which not only contributes to the setting of the C O E Quota Premium but also deprives another person from obtaining a C O E at the same exercise. Hence, a prospective vehicle owner must be prepared to use the Temporary C O E that is successfully bid under his or her name to register the vehicle by the Temporary C O E expiry date. If the owner chooses not to use the Temporary C O E for whatever reason and the Temporary C O E expires, the bid deposit will be forfeited. What other questions do you have for me?
+
+  utter_coeDefinition:
+  - text: C O E stands for Certificate of Entitlement. It represents a right to vehicle ownership for 10 years. The Vehicle Quota System was introduced to control the vehicle population at levels that can be supported by road infrastructure development and planned developments in public transport and traffic management measures. The Vehicle Quota System sets a quota to the number of new vehicles to be registered in Singapore each year. Under the Vehicle Quota System, anyone who wants to register a vehicle will need to first bid for a C O E through the open bidding exercises. Upon expiry of the C O E, the owner will need to renew the C O E for another 5 or 10 years if he wishes to keep the vehicle in Singapore beyond 10 years.
+
+  utter_displayListOfServices:
+  - text: Glad you asked! Here are the list of services that you can ask me about.
+
+  utter_coeSameMonth:
+  - text: Okay, if it's in the month of renewal, you can renew your vehicle’s C O E for a period of 5 years or 10 years, depending on the category of your vehicle and whether your vehicle has a statutory lifespan. Shall I go on?
+
+  utter_needTCoe:
+  - text: The C O E bidding exercises will resume in July 2020, starting with the first bidding exercise on Monday, 6 July 2020. However, should you require a Temporary C O E urgently before C O E bidding exercises resume, you may wish to approach your motor dealer for assistance. In the meantime, what else would you like to know?
+
+  utter_vehicleCategoryDifferences:
+  - text: C O E in Categories A, B and D are non-transferable, while C O E in Categories C and E are transferable only once if the C O E were bid under the name of an individual. If the Category C and E, C O E were bid under the name of a company, business or organisation, the C O E are not transferable.Also, if you have successfully bid for a C O E, you will be issued a Temporary C O E. Categories A, B and D, Temporary C O E are valid for 6 months, while Categories C and E, Temporary C O E are valid for 3 months. If the Temporary C O E is not used by its expiry date, it will lapse and its bid deposit will be forfeited.
+
+  utter_IVRSdefinition:
+  - text: Visual I V R S stands for Visual Interactive Voice Response System. This Visual IVRS  microsite that you are currently using is a vision by LTA, powered by DXC Technology. LTA has hopes to create a new interactive experience from this microsite for Singaporean citizens, to use a primary platform to receive help and knowledge on all things LTA.  LTA Visual IVRS microsite leverages on A I - powered digital human capabilities. Give her a try, say “Hello Jamie”.
+
+  utter_fallback:
+  - text: fallback triggered
+
+  utter_endSession:
+  - text: Would you like to end this session?
+
+  utter_coeExpiredYes:
+  - text: I am sorry to let you know that no renewal is allowed, if the C O E has expired for more than 1 month. The vehicle must be deregistered and disposed of. If you would like to continue asking me questions, you can say "\View Services\" for more topics you can enquire about.
+
+  utter_coeExpiredNo:
+  - text: Well, lucky you! You can renew your C O E online but you must do so within 1 month from the C O E expiry date, with late payment fees. No renewal is allowed if the C O E has expired for more than 1 month.
+
+  utter_coeBidding:
+  - text: Do you wish to submit the bid yourself? Under your company name or approach your motor dealer to bid for the C O E on your behalf?
+
+  utter_coeBiddingSubmitMotor:
+  - text: You may wish to approach your motor dealer to bid for the C O E on your behalf.
+
+  utter_coeBiddingSubmitMyself:
+  - text: Follow the 4 steps below, to submit a bid for C O E in your name.
+
+  utter_coeBiddingSubmitCompany:
+  - text: Follow the 4 steps below, to submit a bid for C O E in your company’s name.
+
+  utter_renewalFiveYears:
+  - text: Is your vehicle a Category C vehicle with 5-year C O E that is expiring?
+
+  utter_renewalFiveYearsYes:
+  - text: If your vehicle is a category C vehicle, you can still renew the C O E after the first 5-year renewal period is over. However, the subsequent renewals can only be for 5-year periods. Once your vehicle reaches the end of its statutory lifespan, you can no longer renew its C O E, and the vehicle will be deregistered.
+
+  utter_renewalFiveYearsNo:
+  - text: For vehicles without statutory lifespan, there is no limit to how many times you can renew it as long as the C O E is renewed for 10 years. However, if you choose to renew the C O E for 5 years, you must deregister the vehicle upon the expiry of the 5-year C O E, as no further renewal of the C O E is allowed.
+
+  utter_renewalTenYears:
+  - text: Is your vehicle a Category C vehicle close to its statutory lifespan?
+  - text: Is your vehicle a Category {category} vehicle close to its statutory lifespan?
+  
+  utter_goodbye:
+  - text: Goodbye. Have a nice day!
+
+  utter_iamabot:
+  - text: I am a bot!
+
+  utter_askLeaveBalance:
+  - text: "Here are your leave balance details"
+    custom:
+      payload: chart
+      data:
+        title: Leaves
+        labels:
+        - Sick Leave
+        - Casual Leave
+        - Earned Leave
+        - Flexi Leave
+        backgroundColor:
+        - "#36a2eb"
+        - "#ffcd56"
+        - "#ff6384"
+        - "#009688"
+        - "#c45850"
+        chartsData:
+        - 5
+        - 10
+        - 22
+        - 3
+        chartType: pie
+        displayLegend: 'true'
+
+actions:
+- utter_IfUserSaysHello
+- utter_coePrices
+- utter_coeHasExpired
+- utter_aboutJamie
+- utter_LTA_greeting
+- utter_MicrositeTutorial
+- utter_coeBiddingDate
+- utter_RenewFiveYear_RenewTenYear
+- utter_coeRenewal
+- utter_coeRenewalLatePayment
+- utter_coeRenewalPayment_Instalment
+- utter_LTAdefinition
+- utter_coeRenewalStatus
+- utter_renewCoeOnline
+- utter_coeRenewalReminder
+- utter_EnquirePQPRate_CheckCoeExpiry
+- utter_useVehicleOnExpiryDate
+- utter_requestForRealHuman
+- utter_vehicleCategory_ValidityPeriod
+- utter_tcoeDefinition
+- utter_Pause
+- utter_ifUserWantsToExitChat
+- utter_ifUserNameIsWrong
+- utter_QPdefinition
+- utter_coeEarly
+- utter_coeRenewalPayment
+- utter_pqpDefinition
+- utter_tcoeCancellation
+- utter_coeDefinition
+- utter_displayListOfServices
+- utter_coeSameMonth
+- utter_needTCoe
+- utter_vehicleCategoryDifferences
+- utter_IVRSdefinition
+- utter_fallback
+- utter_coeExpiredYes
+- utter_coeExpiredNo
+- utter_coeBidding
+- utter_coeBiddingSubmitCompany
+- utter_coeBiddingSubmitMotor
+- utter_coeBiddingSubmitMyself
+- utter_renewalFiveYears
+- utter_renewalFiveYearsNo
+- utter_renewalFiveYearsYes
+- utter_renewalTenYears
+- utter_askLeaveBalance
+- action_default_fallback

@@ -1,0 +1,16 @@
+.button-options-select-new{
+    color: black;
+    border: 1.5px solid;
+    border-color: #431958;
+    display: inline-block;
+    border-radius:15px;
+    padding:10px;
+    box-shadow: 0 3px 10px 0 #aaaaaa;
+    cursor: pointer;
+    margin: 3px;
+    z-index:2;
+  }
+
+.selected-view {
+  background-color: gray;
+}

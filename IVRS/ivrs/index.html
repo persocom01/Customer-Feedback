@@ -1,0 +1,69 @@
+<html>
+
+<head>
+
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <title>DXC Visual IVRS</title>
+  <script type="text/javascript" src="kd-sumerianhost/kd-sumerianhost.js"></script>
+  <script src="scripts/microsoft.cognitiveservices.speech.sdk.bundle-min.js"></script>
+  <script src="scripts/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles/app.css" />
+  <script src="scripts/purl.js"></script>
+  <script src="kd-sumerianhost/aws-sdk-2.645.0.min.js"></script>
+  <script src="scripts/s3Upload.js"></script>
+  <!-- <script src="https://www.paypal.com/sdk/js?client-id=Aec2QFa83j1JU9kywuf8DxMmPWrnjXyPcbyPkLTBw4kPMxo9N_cdGJyE8rJ6xCWt5zeP1CYbncKj3op9"> </script> -->
+  <!-- // Required. Replace SB_CLIENT_ID with your sandbox client ID. Replace cilent ID with production cilent id -->
+
+</head>
+
+<body onload="getLocation()">
+  <p id="location"></p>
+  <div class="main app-page">
+
+    <div id="myhost"></div>
+    <div class=slide-container>
+      <div class="arrow-container">
+        <img class="arrow" src="styles/pictures/arrowUp.png" alt="">
+      </div>
+
+      <div class="tr-container"></div>
+      <div class="chat-container">
+        <input id="typebar" class="typebar" type="text" placeholder="  Ask me anything...">
+        <button class="submit"><i class="fa fa-microphone fa-2x"></i></button>
+        <div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="greeting-page app-page">
+    <div class="banner-container">
+      <div class="banner">
+        <div class="top-msg">Welcome to DXC's <br>Visual IVRS!</div>
+        <!-- <button id="captureImage">Click for photo taking</button> -->
+
+        <img class="greeting-host" src="styles/pictures/Group_73@2x.png" alt="">
+
+        <div class="bottom-msg">Experience our AI-powered customer<br>experience ambassador - Jamie,<br>through our
+          Visual IVR Service.</div>
+        <div class="banner-tail-container">
+          <div class="banner-tail"></div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="primaryButton getStarted">Loading...</div>
+    </div>
+  </div>
+
+  <script src="credentials.js"></script>
+  <script src="config.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/singpass.js"></script>
+  <script src="scripts/location.js"></script>
+  <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+
+</html>
