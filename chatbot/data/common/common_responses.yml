@@ -1,0 +1,16 @@
+version: "2.0"
+
+responses:
+  utter_default:
+  - text: "I didn't get that. Can you say it again?"
+  - text: "I missed what you said. Say it again?"
+  - text: "Sorry, could you say that again?"
+  - text: "Sorry, can you say that again?"
+  - text: "Can you say that again?"
+  - text: "Sorry, I didn't get that. Can you rephrase?"
+  - text: "Sorry, what was that?"
+  - text: "One more time?"
+  - text: "What was that?"
+  - text: "Say that one more time?"
+  - text: "I didn't get that. Can you repeat?"
+  - text: "I missed that, say that again?"

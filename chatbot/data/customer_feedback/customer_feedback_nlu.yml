@@ -1,0 +1,7 @@
+version: "2.0"
+
+nlu:
+- intent: feedback_module
+  examples: |
+    - feedback module
+    - give feedback

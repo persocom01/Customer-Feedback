@@ -1,0 +1,24 @@
+version: "2.0"
+
+stories:
+
+- story: accept feedback
+  steps:
+  - intent: feedback_module
+  - action: utter_feedback
+  - intent: affirm
+  - action: feedback_form
+  - active_loop: feedback_form
+  - slot_was_set:
+    - feedback: the food was good
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_thank_bye
+
+- story: reject feedback
+  steps:
+  - intent: feedback_module
+  - action: utter_feedback
+  - intent: deny
+  - action: utter_thank_bye

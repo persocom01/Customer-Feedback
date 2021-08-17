@@ -1,0 +1,16 @@
+version: "2.0"
+
+intents:
+  - feedback_module
+
+slots:
+  feedback:
+    type: text
+
+forms:
+  feedback_form:
+    required_slots:
+      feedback:
+        - type: from_text
+          # not_intent:
+          # - deny
