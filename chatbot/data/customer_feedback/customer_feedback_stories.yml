@@ -4,6 +4,7 @@ stories:
 
 - story: accept feedback
   steps:
+  - intent: greet
   - intent: feedback_module
   - action: utter_feedback
   - intent: affirm
@@ -18,6 +19,7 @@ stories:
 
 - story: reject feedback
   steps:
+  - intent: greet
   - intent: feedback_module
   - action: utter_feedback
   - intent: deny
