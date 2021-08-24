@@ -8,12 +8,12 @@ import requests
 
 class ValidateFeedbackForm(FormValidationAction):
     def name(self) -> Text:
-        return "validate_feedback_form"
+        return 'validate_feedback_form'
 
     @staticmethod
     def api_credentials():
         return {
-            'url': 'http://localhost:5056/sentiment'
+            'url': 'http://localhost:8000/'
         }
 
     def validate_feedback(
@@ -24,25 +24,21 @@ class ValidateFeedbackForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
 
-        feedback_type = {
-            0: 'postive',
-            1: 'neutral',
-            2: 'negative'
-        }
-
-        r = requests.post(self.api_credentials()['url'], data=slot_value)
-        sentiment = r.text
+        r = requests.post(self.api_credentials()['url'], json={'text': slot_value})
+        sentiment = r.text.strip('"')
         print(sentiment)
+        print('pos')
+        print(sentiment == 'pos')
 
-        if feedback_type[sentiment] == 'postive':
+        if sentiment == 'pos':
             print('postive feedback')
             dispatcher.utter_message(text='We are glad to hear that')
             return {'feedback': slot_value}
-        elif feedback_type[sentiment] == 'neutral':
+        elif sentiment == 'neu':
             print('negative feedback')
             dispatcher.utter_message(text='Thank you for your valuable feedback')
             return {'feedback': slot_value}
-        elif feedback_type[sentiment] == 'negative':
+        elif sentiment == 'neg':
             print('negative feedback')
             dispatcher.utter_message(text='We are sorry to hear that, and we aim to do better next time')
             return {'feedback': slot_value}

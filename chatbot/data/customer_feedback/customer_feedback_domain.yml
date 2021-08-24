@@ -14,3 +14,6 @@ forms:
         - type: from_text
           # not_intent:
           # - deny
+
+actions:
+  - validate_feedback_form

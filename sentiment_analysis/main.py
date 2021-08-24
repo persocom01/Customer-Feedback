@@ -1,9 +1,7 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-
-import time
+import vader
 import uvicorn
-import numpy as np
 
 app = FastAPI()
 
@@ -19,11 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.post('/')
-def audiorecog(file: UploadFile = File(...)):
-
-
-    return 'success'
+async def get_sentiment(res: Request):
+    data = await res.json()
+    ss = vader.sentiment_scores(data['text'])
+    return vader.classify_sentiment(ss)
 
 
 if __name__ == '__main__':
