@@ -46,8 +46,8 @@ app.use(function(err, req, res, next) {
 });
 
 const options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
 };
 
 // Create https server with express
