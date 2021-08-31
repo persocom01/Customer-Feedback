@@ -1,14 +1,15 @@
 version: "2.0"
 
+intents:
+  - order_food
+  - give_feedback
+
 slots:
-  feedback:
+  food:
     type: text
 
 forms:
-  feedback_form:
+  food_order_form:
     required_slots:
-      feedback:
+      food:
         - type: from_text
-
-actions:
-  - validate_feedback_form

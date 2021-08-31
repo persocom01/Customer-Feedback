@@ -32,17 +32,17 @@ class ValidateFeedbackForm(FormValidationAction):
 
         if sentiment == 'pos':
             print('postive feedback')
-            dispatcher.utter_message(text='We are glad to hear that')
+            dispatcher.utter_message(text='We are glad to hear that.')
             return {'feedback': slot_value}
         elif sentiment == 'neu':
-            print('negative feedback')
-            dispatcher.utter_message(text='Thank you for your valuable feedback')
+            print('neutral feedback')
+            dispatcher.utter_message(text='Thank you for your valuable feedback.')
             return {'feedback': slot_value}
         elif sentiment == 'neg':
             print('negative feedback')
-            dispatcher.utter_message(text='We are sorry to hear that, and we aim to do better next time')
+            dispatcher.utter_message(text='We are sorry to hear that. We aim to do better next time.')
             return {'feedback': slot_value}
         else:
             print('invalid feedback')
-            dispatcher.utter_message(text='an error has occured, feedback not recorded')
+            dispatcher.utter_message(text='an error has occured, feedback not recorded.')
             return {'feedback': None}

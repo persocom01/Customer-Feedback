@@ -2,7 +2,7 @@ version: "2.0"
 
 rules:
 
-- rule: start form
+- rule: start feedback form
   steps:
   - action: feedback_form
   - active_loop: feedback_form

@@ -1,13 +1,26 @@
+import json
+from sqlalchemy import create_engine
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import vader
 import uvicorn
 
+cfg_path = './server.cfg'
+
+with open(cfg_path, 'r') as f:
+    cfg = json.load(f)
+
+try:
+    password = cfg['password']
+except KeyError:
+    password = ''
+engine_string = 'mysql+pymysql://' + cfg['user'] + ':' + password + '@' + cfg['host'] + '/' + cfg['db']
+engine = create_engine(engine_string)
+con = engine.connect()
+
 app = FastAPI()
 
-origins = [
-    '*'
-]
+origins = ['*']
 
 app.add_middleware(
     CORSMiddleware,
@@ -21,7 +34,11 @@ app.add_middleware(
 @app.post('/')
 async def get_sentiment(res: Request):
     data = await res.json()
-    ss = vader.sentiment_scores(data['text'])
+    sentence = data['text']
+    ss = vader.sentiment_scores(sentence)
+    compound_score = ss['compound']
+    command = f'INSERT INTO customer_feedback(feedback, sentiment_score) VALUES ("{sentence}", {compound_score});'
+    con.execute(command)
     return vader.classify_sentiment(ss)
 
 

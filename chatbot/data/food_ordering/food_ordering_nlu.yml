@@ -1,0 +1,15 @@
+version: "2.0"
+
+nlu:
+- intent: order_food
+  examples: |
+    - I will like to order food
+    - I need food
+    - order food
+    - I need to order food
+    - ordering food
+- intent: give_feedback
+  examples: |
+    - I want to provide feedback
+    - give feedback
+    - I want to give some feedback

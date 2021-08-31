@@ -1,0 +1,14 @@
+version: "2.0"
+
+responses:
+  utter_ask_food_order_form_food:
+  - text: "What would you like to order?"
+  - text: "What will be your order?"
+  utter_thank_order:
+  - text: "Thank you for your order!"
+  utter_feedback:
+  - text: "Would you like to give us your feedback?"
+  - text: "Would you like to provide us with feedback?"
+  utter_thank_bye:
+  - text: "Thank you for using our service. We hope to see you again!"
+  - text: "Thank you for using our service, and have a nice day!"

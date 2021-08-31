@@ -2,13 +2,9 @@ version: "2.0"
 
 stories:
 
-- story: accept feedback
+- story: feedback module
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: feedback_module
-  - action: utter_feedback
-  - intent: affirm
+  - checkpoint: start_feedback_module
   - action: feedback_form
   - active_loop: feedback_form
   - slot_was_set:
@@ -16,13 +12,4 @@ stories:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_thank_bye
-
-- story: reject feedback
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: feedback_module
-  - action: utter_feedback
-  - intent: deny
-  - action: utter_thank_bye
+  - checkpoint: end_feedback_module

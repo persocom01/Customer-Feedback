@@ -1,0 +1,8 @@
+version: "2.0"
+
+rules:
+
+- rule: start food order form
+  steps:
+  - action: food_order_form
+  - active_loop: food_order_form
