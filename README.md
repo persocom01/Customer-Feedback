@@ -16,12 +16,14 @@ This sets up a docker image of Metabase on port `3001`, where it can be reached 
 ## Usage
 
 There are parts to this system:
-1. IVRS - Inside the `IVRS` folder, enter `npm run`.
+1. IVRS - Inside the `IVRS` folder, enter `npm start`.
 2. chatbot api - Inside the `chatbot` folder, enter `rasa run --enable-api --cors "*"`
 3. chatbot action server - inside the `chatbot` folder, enter `rasa run actions`
-4. FastAPI api server - inside the `sentiment_analysis` folder, enter `uvicorn main:app --reload`
+4. FastAPI api server - inside the `text_analysis` folder, enter `uvicorn main:app --reload`
 5. Database server - the database for the windows installation is mariadb and is found on `localhost:3306` that is run using the WinNMP stack manager.
 6. Docker metabase server - Once installed, run the server using the docker dashboard.
+
+Reach the IVRS app at localhost:3000 and metabase at localhost:3001.
 
 ## Credits
 

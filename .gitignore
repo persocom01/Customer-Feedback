@@ -134,4 +134,4 @@ dmypy.json
 key.pem
 cert.pem
 credentials.js
-/sentiment_analysis/data
+/text_analysis/data

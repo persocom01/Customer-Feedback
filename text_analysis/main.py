@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import vader
+import textrank
 import uvicorn
 
 cfg_path = './server.cfg'
@@ -37,7 +38,8 @@ async def get_sentiment(res: Request):
     sentence = data['text']
     ss = vader.sentiment_scores(sentence)
     compound_score = ss['compound']
-    command = f'INSERT INTO customer_feedback(feedback, sentiment_score) VALUES ("{sentence}", {compound_score});'
+    topics = textrank.return_topics(sentence)
+    command = f'INSERT INTO customer_feedback(feedback, sentiment_score, topics) VALUES ("{sentence}", {compound_score}, "{topics}");'
     con.execute(command)
     return vader.classify_sentiment(ss)
 
