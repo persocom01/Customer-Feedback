@@ -15,13 +15,13 @@ try:
     password = cfg['password']
 except KeyError:
     password = ''
-engine_string = 'mysql+pymysql://' + cfg['user'] + ':' + password + '@' + cfg['host'] + '/' + cfg['db']
-engine = create_engine(engine_string)
+engine_string = f"mysql+pymysql://{cfg['user']}:{password}@{cfg['host']}/{cfg['db']}"
+engine = create_engine(engine_string, pool_pre_ping=True, pool_recycle=300)
 con = engine.connect()
 
 app = FastAPI()
 
-origins = ['*']
+origins = cfg['cors']
 
 app.add_middleware(
     CORSMiddleware,

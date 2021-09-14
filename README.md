@@ -15,7 +15,7 @@ This sets up a docker image of Metabase on port `3001`, where it can be reached 
 
 ## Usage
 
-There are parts to this system:
+There are 6 parts to this system:
 1. IVRS - Inside the `IVRS` folder, enter `npm start`.
 2. chatbot api - Inside the `chatbot` folder, enter `rasa run --enable-api --cors "*"`
 3. chatbot action server - inside the `chatbot` folder, enter `rasa run actions`

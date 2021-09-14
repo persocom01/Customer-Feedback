@@ -8,5 +8,7 @@ def return_topics(text):
     doc = nlp(text)
     output = []
     for phrase in doc._.phrases:
-        output.append(phrase.text)
+        topic = phrase.text
+        topic = topic.lower().replace('the ', '')
+        output.append(topic)
     return ', '.join(output)
