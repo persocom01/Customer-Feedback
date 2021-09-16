@@ -1,7 +1,9 @@
 import json
 from sqlalchemy import create_engine
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import Optional
 import vader
 import textrank
 import uvicorn
@@ -32,10 +34,15 @@ app.add_middleware(
 )
 
 
+class PostReq(BaseModel):
+    sentence: str
+    sentiment: Optional[str] = 'vader'
+    topic: Optional[bool] = True
+
+
 @app.post('/')
-async def get_sentiment(res: Request):
-    data = await res.json()
-    sentence = data['text']
+async def get_sentiment(req: PostReq):
+    sentence = req.sentence
     ss = vader.sentiment_scores(sentence)
     compound_score = ss['compound']
     topics = textrank.return_topics(sentence)

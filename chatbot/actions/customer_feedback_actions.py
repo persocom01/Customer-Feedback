@@ -3,7 +3,12 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 
+import yaml
 import requests
+
+with open('./credentials.yml') as f:
+    cfg = yaml.safe_load(f)['text_analysis']
+    print(cfg)
 
 
 class ValidateFeedbackForm(FormValidationAction):
@@ -13,7 +18,9 @@ class ValidateFeedbackForm(FormValidationAction):
     @staticmethod
     def api_credentials():
         return {
-            'url': 'http://localhost:8000/'
+            'url': cfg['url'],
+            'sentiment_analysis': cfg['sentiment_analysis'],
+            'has_summary': cfg['has_summary']
         }
 
     def validate_feedback(
@@ -24,11 +31,8 @@ class ValidateFeedbackForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
 
-        r = requests.post(self.api_credentials()['url'], json={'text': slot_value})
+        r = requests.post(self.api_credentials()['url'], json={'sentence': slot_value})
         sentiment = r.text.strip('"')
-        print(sentiment)
-        print('pos')
-        print(sentiment == 'pos')
 
         if sentiment == 'pos':
             print('postive feedback')
