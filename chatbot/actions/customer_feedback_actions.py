@@ -3,12 +3,11 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 
-import yaml
+import json
 import requests
 
-with open('./credentials.yml') as f:
-    cfg = yaml.safe_load(f)['text_analysis']
-    print(cfg)
+with open('./customer_feedback_config.json') as f:
+    cfg = json.load(f)
 
 
 class ValidateFeedbackForm(FormValidationAction):

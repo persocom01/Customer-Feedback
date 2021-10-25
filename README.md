@@ -1,4 +1,15 @@
-# Customer-Feedback
+# inp-customer-feedback
+
+This repository is of an add-on to the existing chatbot model (ASR Singlish speech recognition model) that can help customer order food and track the real time sentiments of the customer reviews to keep track of their satisfaction with the service.
+
+As an add on, it does not work by itself. However, for demo purposes, a complete, working system was constructed.
+
+Features:
+* Returns a sentiment score between -1 and 1 for a given text
+* Able to return the main topic of a given text
+* Uses either rule based or machine learning based sentiment analysis
+* Saves feedback and analysis results to sql server
+* Display results to business uses using a dashboard
 
 ## Installation
 

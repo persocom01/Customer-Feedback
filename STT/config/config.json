@@ -1,0 +1,13 @@
+{
+    "cors": [
+        "*"
+    ],
+    "https": {
+        "certfile": "./config/cert.pem",
+        "enabled": false,
+        "keyfile": "./config/key.pem"
+    },
+    "model": "./modules/vosk_stt/model",
+    "path": "/",
+    "port": 8001
+}

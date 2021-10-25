@@ -1,0 +1,3 @@
+requests-toolbelt==0.9.1
+SpeechRecognition==3.8.1
+pyaudio==0.2.11

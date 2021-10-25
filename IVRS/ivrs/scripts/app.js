@@ -8,22 +8,22 @@ var nric;
 var azureSTT = false;
 
 // Variables for Recorder.js
-//webkitURL is deprecated but nevertheless 
+//webkitURL is deprecated but nevertheless
 URL = window.URL || window.webkitURL;
 var gumStream;
-//stream from getUserMedia() 
+//stream from getUserMedia()
 var rec;
-//Recorder.js object 
+//Recorder.js object
 var input;
-//MediaStreamAudioSourceNode we'll be recording 
-// shim for AudioContext when it's not avb. 
+//MediaStreamAudioSourceNode we'll be recording
+// shim for AudioContext when it's not avb.
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var constraints = {
     audio: true,
     video: false
   }
 
-// var rasa_server = "127.0.0.1" 
+// var rasa_server = "127.0.0.1"
 // var rasa_api_port = 5005
 
 // uuid generator
@@ -81,7 +81,7 @@ var $submitter = $(".submit");
 async function chat_Rasa(msg, metadata = null, current_user = userId) {
     return $.ajax({
         type: "POST",
-        url: rasaUrl, // From config.js 
+        url: rasaUrl, // From config.js
         // url: `https://rasa-test.dxciclp.com/webhooks/rest/webhook`,
         dataType: "json",
         //crossDomain: true,
@@ -124,8 +124,8 @@ function initSpeechEngine() {
             if (azureSTT == false) {
                 startRecording()
             } else {
-                // using MS Cognitive Services Speech SDK 
-                let speechConfig = SpeechSDK.SpeechConfig.fromSubscription(azureKey, "southeastasia"); 
+                // using MS Cognitive Services Speech SDK
+                let speechConfig = SpeechSDK.SpeechConfig.fromSubscription(azureKey, "southeastasia");
                 speechConfig.speechRecognitionLanguage = "en-US";
                 var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
                 recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
@@ -145,7 +145,7 @@ function initSpeechEngine() {
             $chathistory.find(".ch-container-listening").remove();
             appendChat($(`<div class ="ch-container-listening"><div class ="ch-user ch-listening">Transcribing... Please wait</div></div>`));
         }
-        
+
     })
 
     if (window.SpeechSDK) SpeechSDK = window.SpeechSDK;
@@ -253,7 +253,7 @@ function renderContent(responseContent) {
                     return actions.order.create({
                         purchase_units: [{
                             amount: {
-                                value: '100' // value  
+                                value: '100' // value
                             }
                         }]
                     });
@@ -272,7 +272,7 @@ function renderContent(responseContent) {
 
         case "call_person_form":
             let $form = $(
-                `<div class="form"> 
+                `<div class="form">
                     <form name="personal_particulars" onsubmit=submitForm(event) action="" class="partculars-form">
                         <label for="name:">Name:</label>
                         <input type="text" value="" placeholder="name">
@@ -319,7 +319,7 @@ $(".getStarted").click(function () {
 
         // setTimeout(() => {
         //     processUserInput("hello", true);    // simulate a user intent to trigger bot greeting
-        // }, 3000);  
+        // }, 3000);
 
 
 
@@ -337,7 +337,7 @@ function checkRetrieveChat() {
         if (showChat == "false") {
             // setTimeout(() => {
             //     processUserInput("hello", true);    // simulate a user intent to trigger bot greeting
-            // }, 3000);   
+            // }, 3000);
             // Restart conversation
             chat_Rasa('/restart').then((res) => {
                 setTimeout(() => {
@@ -491,46 +491,46 @@ function startRecording() {
       rec = new Recorder(input, {
         numChannels: 1
       })
-      //start the recording process 
+      //start the recording process
       rec.record()
       console.log("Recording started");
     })
   }
   function stopRecording() {
-    rec.stop(); //stop microphone access 
+    rec.stop(); //stop microphone access
     gumStream.getAudioTracks()[0].stop();
-    //create the wav blob and pass it on to createDownloadLink 
+    //create the wav blob and pass it on to createDownloadLink
     rec.exportWAV(createDownloadLink);
   }
-  
-  function createDownloadLink(blob) {
-  
+
+  async function createDownloadLink(blob) {
+
     let data = new FormData();
     data.append('file', blob);
-  
+
     start_time = Date.now()
-    fetch('https://13.212.137.174:5006/audiorecog', {
+    fetch('http://localhost:8001/', {
         method: 'POST',
         body: data
       }
-  
+
     ).then(res => {
-      res.json().then(res_json => {
-        transcribed_audio = res_json.transcribed_audio;
-        console.log(res_json.transcribed_audio);
+      res.text().then(res_text => {
+        transcribed_audio = res_text.replace(/^"(.*)"$/, '$1');
+        console.log(transcribed_audio);
 
         processUserInput(transcribed_audio, true);
 
         $chathistory.find(".ch-container-listening").remove();
         appendChat($(`<div class ="ch-container-user"><div class ="ch-user">${transcribed_audio}</div></div>`));
-        
+
         end_time = Date.now()
         time_taken = end_time - start_time
         console.log(`The FastAPI server took ${Math.floor(time_taken/1000)} seconds to return a response`)
       })
-      
+
     }).catch (e => {
       console.log(e)
     });
-  
+
   }

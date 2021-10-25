@@ -38,18 +38,20 @@ class PostReq(BaseModel):
     sentence: str
     sentiment: Optional[str] = 'vader'
     topic: Optional[bool] = True
+    threshold: Optional[float] = 0.05
 
 
 @app.post('/')
 async def get_sentiment(req: PostReq):
+    print('processing sentiment')
     sentence = req.sentence
     ss = vader.sentiment_scores(sentence)
     compound_score = ss['compound']
     topics = textrank.return_topics(sentence)
     command = f'INSERT INTO customer_feedback(feedback, sentiment_score, topics) VALUES ("{sentence}", {compound_score}, "{topics}");'
     con.execute(command)
-    return vader.classify_sentiment(ss)
+    return vader.classify_sentiment(ss, threshold=req.threshold)
 
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='0.0.0.0', port=8000, log_level='debug', ssl_keyfile='./key.pem', ssl_certfile='./cert.pem')
+    uvicorn.run('main:app', host='0.0.0.0', port=8000, log_level='debug')
